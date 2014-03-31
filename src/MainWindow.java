@@ -5,6 +5,11 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class MainWindow extends JFrame implements ActionListener {
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 652242427934896712L;
+
   int start = 1;
 
   ArrayList<Runner> Runners; 

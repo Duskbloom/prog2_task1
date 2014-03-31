@@ -1,6 +1,10 @@
 import javax.swing.*;
 class Form extends JPanel{
 
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 5427276141986312219L;
   private JTextField nameField = new JTextField(10);
   private JTextField countryField = new JTextField(10);
   private JTextField ageField = new JTextField(2);
