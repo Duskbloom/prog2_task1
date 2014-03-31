@@ -24,7 +24,8 @@ public class MainWindow extends JFrame implements ActionListener {
   private JRadioButton rAge = new JRadioButton("Ålder");
   private JRadioButton rTime = new JRadioButton("Tid");
 
-  private JTextArea text = new JTextArea();
+  private JList  runnerList;
+  private DefaultListModel runnerListModel;
   private JLabel header = new JLabel("Kista Maraton");
   private JLabel sort = new JLabel("Sortering");
 
@@ -36,6 +37,8 @@ public class MainWindow extends JFrame implements ActionListener {
     super("Fönster");
 
     Runners = runners;
+    runnerListModel = new DefaultListModel();
+    runnerList = new JList(runnerListModel);
     JPanel p1 = new JPanel();
     JPanel p2 = new JPanel();
     JPanel p3 = new JPanel();
@@ -57,7 +60,7 @@ public class MainWindow extends JFrame implements ActionListener {
     p2.add(newButton);
     p2.add(showButton);
     p2.add(timeButton);
-    p3.add(text);
+    p3.add(runnerList);
     p4.add(sort);
     p4.add(rStart);
     p4.add(rName);
@@ -86,7 +89,6 @@ public class MainWindow extends JFrame implements ActionListener {
       //skriv om listan på löpare
     }
     if (e.getSource() == showButton){
-      text.setText("");
       
       if (rStart.isSelected()){     
         Collections.sort(Runners, new StartComparator());
@@ -102,10 +104,10 @@ public class MainWindow extends JFrame implements ActionListener {
       }
       //kolla radiobutton.isSelected() else if  lägg till lyssnare på radiobuttons
 
-      for(Runner r : Runners){
-        text.append(r.toString() + "\n");
+      runnerListModel.clear();
+      for(Runner runner: Runners){
+        runnerListModel.addElement(runner);
       }
-
     }
     if (e.getSource() == timeButton){
       //lägg till tid
