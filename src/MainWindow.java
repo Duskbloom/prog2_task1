@@ -10,22 +10,22 @@ public class MainWindow extends JFrame implements ActionListener {
    */
   private static final long serialVersionUID = 652242427934896712L;
 
-  int start = 1;
+  private int start = 1;
 
-  ArrayList<Runner> Runners; 
+  private ArrayList<Runner> Runners; 
 
-  JButton newButton = new JButton("Ny");
-  JButton showButton = new JButton("Visa");
-  JButton timeButton = new JButton("Tid");
+  private JButton newButton = new JButton("Ny");
+  private JButton showButton = new JButton("Visa");
+  private JButton timeButton = new JButton("Tid");
 
-  JRadioButton rStart = new JRadioButton("Startnr");
-  JRadioButton rName = new JRadioButton("Namn");
-  JRadioButton rAge = new JRadioButton("Ålder");
-  JRadioButton rTime = new JRadioButton("Tid");
+  private JRadioButton rStart = new JRadioButton("Startnr");
+  private JRadioButton rName = new JRadioButton("Namn");
+  private JRadioButton rAge = new JRadioButton("Ålder");
+  private JRadioButton rTime = new JRadioButton("Tid");
 
-  JTextArea text = new JTextArea();
-  JLabel header = new JLabel("Kista Maraton");
-  JLabel sort = new JLabel("Sortering");
+  private JTextArea text = new JTextArea();
+  private JLabel header = new JLabel("Kista Maraton");
+  private JLabel sort = new JLabel("Sortering");
 
   public MainWindow(){
     this(new ArrayList<Runner>());
