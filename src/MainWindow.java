@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class MainWindow extends JFrame implements ActionListener {
   /**
@@ -111,39 +112,43 @@ public class MainWindow extends JFrame implements ActionListener {
   }
 
   private void newButtonClicked(ActionEvent e){
-      Form form = new Form();
-      int result = JOptionPane.showConfirmDialog(null, form, "Ny tävlande", JOptionPane.OK_CANCEL_OPTION, JOptionPane.NO_OPTION);
-      if(result == JOptionPane.OK_OPTION){
-        Runners.add(new Runner(form.getName(), form.getCountry(), form.getAge(), start));
-      }
+    Form form = new Form();
+    int result = JOptionPane.showConfirmDialog(null, form, "Ny tävlande", JOptionPane.OK_CANCEL_OPTION, JOptionPane.NO_OPTION);
+    if(result == JOptionPane.OK_OPTION){
+      Runners.add(new Runner(form.getName(), form.getCountry(), form.getAge(), start));
+    }
 
-      start++;
-      //skriv om listan på löpare
+    start++;
+    //skriv om listan på löpare
   }
 
   private void showButtonClicked(ActionEvent e){
-      if (rStart.isSelected()){     
-        Collections.sort(Runners, new StartComparator());
-      }
-      else if (rName.isSelected()){
-        Collections.sort(Runners, new NameComparator());
-      }
-      else if (rAge.isSelected()){
-        Collections.sort(Runners, new AgeComparator());
-      }
-      else if (rTime.isSelected()){
-        Collections.sort(Runners, new TimeComparator());
-      }
-      //kolla radiobutton.isSelected() else if  lägg till lyssnare på radiobuttons
+    if (rStart.isSelected()){     
+      sort(new StartComparator()); 
+    }
+    else if (rName.isSelected()){
+      sort(new NameComparator());
+    }
+    else if (rAge.isSelected()){
+      sort(new AgeComparator());
+    }
+    else if (rTime.isSelected()){
+      sort(new TimeComparator());
+    }
+    //kolla radiobutton.isSelected() else if  lägg till lyssnare på radiobuttons
 
-      runnerListModel.clear();
-      for(Runner runner: Runners){
-        runnerListModel.addElement(runner);
-      }
+    runnerListModel.clear();
+    for(Runner runner: Runners){
+      runnerListModel.addElement(runner);
+    }
   }
 
   private void timeButtonClicked(ActionEvent e){
-      //lägg till tid
+    //lägg till tid
+  }
+
+  private void sort(Comparator<Runner> comparator){
+    Collections.sort(Runners,  comparator);
   }
 
 }
