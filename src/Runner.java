@@ -13,7 +13,30 @@ public class Runner{
     this.age = a;
     this.startn = s;
   }
+  
+  public double getTime() {
+    return time;
+  }
 
+  public void setTime(double time) {
+    this.time = time;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getCountry() {
+    return country;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public int getStartn() {
+    return startn;
+  }
   @Override
   public String toString() {
     return startn + " " + name + ", " + country + ", " + age
