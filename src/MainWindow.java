@@ -100,6 +100,17 @@ public class MainWindow extends JFrame implements ActionListener {
 
   public void actionPerformed(ActionEvent e){
     if (e.getSource() == newButton){
+      newButtonClicked(e);
+    }
+    if (e.getSource() == showButton){
+      showButtonClicked(e);
+    }
+    if (e.getSource() == timeButton){
+      timeButtonClicked(e);
+    }
+  }
+
+  private void newButtonClicked(ActionEvent e){
       Form form = new Form();
       int result = JOptionPane.showConfirmDialog(null, form, "Ny tävlande", JOptionPane.OK_CANCEL_OPTION, JOptionPane.NO_OPTION);
       if(result == JOptionPane.OK_OPTION){
@@ -108,9 +119,9 @@ public class MainWindow extends JFrame implements ActionListener {
 
       start++;
       //skriv om listan på löpare
-    }
-    if (e.getSource() == showButton){
+  }
 
+  private void showButtonClicked(ActionEvent e){
       if (rStart.isSelected()){     
         Collections.sort(Runners, new StartComparator());
       }
@@ -129,10 +140,10 @@ public class MainWindow extends JFrame implements ActionListener {
       for(Runner runner: Runners){
         runnerListModel.addElement(runner);
       }
-    }
-    if (e.getSource() == timeButton){
+  }
+
+  private void timeButtonClicked(ActionEvent e){
       //lägg till tid
-    }
   }
 
 }
