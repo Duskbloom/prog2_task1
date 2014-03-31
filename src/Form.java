@@ -23,6 +23,9 @@ class Form extends JPanel{
     p2.add(countryField);
     p3.add(ageLabel);
     p3.add(ageField);
+    this.add(p1);
+    this.add(p2);
+    this.add(p3);
   }
 
   public String getName(){
@@ -35,6 +38,6 @@ class Form extends JPanel{
 
   public int getAge(){
     //fånga icke heltalsundantag, numberformatexception
-    return Integer.parseInt(nameField.getText());
+    return Integer.parseInt(ageField.getText());
   }
 }
