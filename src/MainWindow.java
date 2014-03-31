@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainWindow extends JFrame implements ActionListener {
   /**
@@ -83,7 +84,19 @@ public class MainWindow extends JFrame implements ActionListener {
     }
     if (e.getSource() == showButton){
       text.setText("");
-
+      
+      if (rStart.isSelected()){     
+        Collections.sort(Runners, new StartComparator());
+      }
+      else if (rName.isSelected()){
+        Collections.sort(Runners, new NameComparator());
+      }
+      else if (rAge.isSelected()){
+        Collections.sort(Runners, new AgeComparator());
+      }
+      else if (rTime.isSelected()){
+        Collections.sort(Runners, new TimeComparator());
+      }
       //kolla radiobutton.isSelected() else if  lägg till lyssnare på radiobuttons
 
       for(Runner r : Runners){
