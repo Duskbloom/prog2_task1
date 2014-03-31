@@ -16,8 +16,8 @@ public class Runner{
 
   @Override
   public String toString() {
-    return name + ", " + country + ", " + age
-      + "år, " + ", Startnummer:" + startn + ", " + time + " s";
+    return startn + " " + name + ", " + country + ", " + age
+      + " år, " + startn + ", " + time;
   }
 
 
