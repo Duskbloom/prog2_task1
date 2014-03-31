@@ -35,20 +35,42 @@ public class MainWindow extends JFrame implements ActionListener {
 
   public MainWindow(ArrayList<Runner> runners){
     super("Fönster");
-
     Runners = runners;
-    runnerListModel = new DefaultListModel();
-    runnerList = new JList(runnerListModel);
-    JPanel p1 = new JPanel();
-    JPanel p2 = new JPanel();
-    JPanel p3 = new JPanel();
-    JPanel p4 = new JPanel();
-    p4.setLayout(new BoxLayout(p4, BoxLayout.Y_AXIS));
 
-    add(p1, BorderLayout.NORTH);
-    add(p2, BorderLayout.SOUTH);
-    add(p3, BorderLayout.CENTER);
-    add(p4, BorderLayout.EAST);
+    add(buildHeaderPanel(), BorderLayout.NORTH);
+    add(buildControllsPanel(), BorderLayout.SOUTH);
+    add(buildListPanel(), BorderLayout.CENTER);
+    add(buildSortingPanel(), BorderLayout.EAST);
+
+    setSize(500, 600);
+    setLocation(400, 50);
+    setVisible(true);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+  }
+
+  private JPanel buildHeaderPanel(){
+    JPanel panel = new JPanel();
+    panel.add(header);
+    return panel;
+  }
+
+  private JPanel buildControllsPanel(){
+    JPanel panel = new JPanel();
+
+    panel.add(newButton);
+    panel.add(showButton);
+    panel.add(timeButton);
+
+    newButton.addActionListener(this);
+    showButton.addActionListener(this);
+    timeButton.addActionListener(this);
+
+    return panel;
+  }
+
+  private JPanel buildSortingPanel(){
+    JPanel panel = new JPanel();
+    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
     ButtonGroup group = new ButtonGroup();
     group.add(rAge);
@@ -56,27 +78,24 @@ public class MainWindow extends JFrame implements ActionListener {
     group.add(rStart);
     group.add(rTime);
 
-    p3.setLayout(new BorderLayout());
+    panel.add(sort);
+    panel.add(rStart);
+    panel.add(rName);
+    panel.add(rAge);
+    panel.add(rTime);
 
-    p1.add(header);
-    p2.add(newButton);
-    p2.add(showButton);
-    p2.add(timeButton);
-    p3.add(runnerList);
-    p4.add(sort);
-    p4.add(rStart);
-    p4.add(rName);
-    p4.add(rAge);
-    p4.add(rTime);
+    return panel;
+  }
 
-    newButton.addActionListener(this);
-    showButton.addActionListener(this);
-    timeButton.addActionListener(this);
+  private JPanel buildListPanel(){
+    runnerListModel = new DefaultListModel();
+    runnerList = new JList(runnerListModel);
 
-    setSize(500, 600);
-    setLocation(400, 50);
-    setVisible(true);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    JPanel panel = new JPanel();
+    panel.setLayout(new BorderLayout());
+    panel.add(runnerList);
+
+    return panel;
   }
 
   public void actionPerformed(ActionEvent e){
