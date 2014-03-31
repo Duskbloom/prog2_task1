@@ -32,7 +32,7 @@ public class MainWindow extends JFrame implements ActionListener {
   public MainWindow(){
     this(new ArrayList<Runner>());
   }
-  
+
   public MainWindow(ArrayList<Runner> runners){
     super("Fönster");
 
@@ -55,6 +55,8 @@ public class MainWindow extends JFrame implements ActionListener {
     group.add(rName);
     group.add(rStart);
     group.add(rTime);
+
+    p3.setLayout(new BorderLayout());
 
     p1.add(header);
     p2.add(newButton);
@@ -84,12 +86,12 @@ public class MainWindow extends JFrame implements ActionListener {
       if(result == JOptionPane.OK_OPTION){
         Runners.add(new Runner(form.getName(), form.getCountry(), form.getAge(), start));
       }
-     
+
       start++;
       //skriv om listan på löpare
     }
     if (e.getSource() == showButton){
-      
+
       if (rStart.isSelected()){     
         Collections.sort(Runners, new StartComparator());
       }
