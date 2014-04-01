@@ -12,6 +12,7 @@ public class Runner{
     this.country = c;
     this.age = a;
     this.startn = s;
+    this.time = Double.MAX_VALUE;
   }
   
   public double getTime() {
