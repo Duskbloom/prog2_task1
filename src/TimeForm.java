@@ -39,21 +39,4 @@ class TimeForm extends JPanel {
     return Double.parseDouble(timeField.getText());
   }
   
-  private boolean isValidInteger(String input){
-    try{
-      Integer.parseInt(input);
-    }catch(NumberFormatException e){
-      return false;
-    }
-    return true;
-  }
-  
-  private boolean isValidDouble(String input){
-    try{
-      Double.parseDouble(input);
-    }catch(NumberFormatException e){
-      return false;
-    }
-    return true;
-  }
 }
