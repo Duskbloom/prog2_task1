@@ -40,7 +40,7 @@ class TimeForm extends Form {
   }
   
   @Override
-  public boolean isValid(){
+  public boolean isValidForm(){
     return isValidInteger(startNumberField.getText()) && isValidDouble(timeField.getText());
   }
   

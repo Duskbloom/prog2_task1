@@ -42,4 +42,11 @@ public class NewRunnerForm extends Form{
   public int getAge(){
     return Integer.parseInt(ageField.getText());
   }
+
+  @Override
+  public boolean isValidForm() {
+    if(ageField.getText()==null)
+      return false;
+    return isValidInteger(ageField.getText());
+  }
 }

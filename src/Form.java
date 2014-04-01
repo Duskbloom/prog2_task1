@@ -19,5 +19,5 @@ abstract class Form extends JPanel{
     return true;
   }
 
-  public abstract boolean isValid();
+  public abstract boolean isValidForm();
 }
