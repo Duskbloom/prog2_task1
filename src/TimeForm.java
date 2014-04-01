@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-class TimeForm extends JPanel {
+class TimeForm extends Form {
   private JTextField startNumberField;
   private JTextField timeField;
 
@@ -37,6 +37,11 @@ class TimeForm extends JPanel {
 
   public double getTime(){
     return Double.parseDouble(timeField.getText());
+  }
+  
+  @Override
+  public boolean isValid(){
+    return isValidInteger(startNumberField.getText()) && isValidDouble(timeField.getText());
   }
   
 }
