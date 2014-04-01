@@ -74,11 +74,12 @@ public class MainWindow extends JFrame implements ActionListener {
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
     ButtonGroup group = new ButtonGroup();
+    rStart.setSelected(true);
     group.add(rAge);
     group.add(rName);
     group.add(rStart);
     group.add(rTime);
-
+    
     panel.add(sort);
     panel.add(rStart);
     panel.add(rName);
