@@ -113,16 +113,18 @@ public class MainWindow extends JFrame implements ActionListener {
 
   private void newButtonClicked(ActionEvent e){
     NewRunnerForm form = new NewRunnerForm();
+    showNewRunnerForm(form);
+    start++;
+  }
+
+  private void showNewRunnerForm(NewRunnerForm form){
     int result = JOptionPane.showConfirmDialog(null, form, "Ny tävlande", JOptionPane.OK_CANCEL_OPTION, JOptionPane.NO_OPTION);
     if(result == JOptionPane.OK_OPTION){
       if(form.isValidForm())    
         Runners.add(new Runner(form.getName(), form.getCountry(), form.getAge(), start));
       else
-        newButtonClicked(e);
+        showNewRunnerForm(form);
     }
-
-    start++;
-    //skriv om listan på löpare
   }
 
   private void showButtonClicked(ActionEvent e){
@@ -151,6 +153,10 @@ public class MainWindow extends JFrame implements ActionListener {
 
   private void timeButtonClicked(ActionEvent e){
     TimeForm form = new TimeForm();
+    showTimeForm(form);
+  }
+  
+  private void showTimeForm(TimeForm form){
     int result = JOptionPane.showConfirmDialog(null, form, "Ny tävlande", JOptionPane.OK_CANCEL_OPTION, JOptionPane.NO_OPTION);
     if(result == JOptionPane.OK_OPTION){
       if(form.isValidForm()){
@@ -159,10 +165,10 @@ public class MainWindow extends JFrame implements ActionListener {
           runner.setTime(form.getTime());
         }else{
           JOptionPane.showMessageDialog(null, "Startnumret existerar inte!");
-          timeButtonClicked(e);
+          showTimeForm(form);
         }
       }else{
-        timeButtonClicked(e);
+        showTimeForm(form);
       }
     }
   }
