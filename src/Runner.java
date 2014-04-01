@@ -12,6 +12,7 @@ public class Runner{
     this.country = c;
     this.age = a;
     this.startn = s;
+    this.time = Double.MAX_VALUE;
   }
   
   public double getTime() {
@@ -40,7 +41,7 @@ public class Runner{
   @Override
   public String toString() {
     return startn + " " + name + ", " + country + ", " + age
-      + " år, " + startn + ", " + time;
+      + " år, " + ", " + time;
   }
 
 

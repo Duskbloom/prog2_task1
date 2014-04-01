@@ -1,5 +1,6 @@
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -45,8 +46,9 @@ public class NewRunnerForm extends Form{
 
   @Override
   public boolean isValidForm() {
-    if(ageField.getText()==null)
-      return false;
+    if (!isValidInteger(ageField.getText())){
+      JOptionPane.showMessageDialog(null, "Du måste ange en ålder i siffror");
+    }
     return isValidInteger(ageField.getText());
   }
 }
