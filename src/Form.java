@@ -37,7 +37,11 @@ class Form extends JPanel{
   }
 
   public int getAge(){
-    //fånga icke heltalsundantag, numberformatexception
-    return Integer.parseInt(ageField.getText());
+    try{
+      int i = Integer.parseInt(ageField.getText());
+    }catch(NumberFormatException ex){
+      //error handling here
+    }
+    return i; // :(
   }
 }
