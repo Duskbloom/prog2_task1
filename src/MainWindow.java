@@ -147,7 +147,29 @@ public class MainWindow extends JFrame implements ActionListener {
   }
 
   private void timeButtonClicked(ActionEvent e){
-    //lägg till tid
+    TimeForm form = new TimeForm();
+    int result = JOptionPane.showConfirmDialog(null, form, "Ny tävlande", JOptionPane.OK_CANCEL_OPTION, JOptionPane.NO_OPTION);
+    if(result == JOptionPane.OK_OPTION){
+      if(form.isValidForm()){
+        Runner runner = getRunnerByStartNumber(form.getStartNumber());
+        if(runner != null){
+          runner.setTime(form.getTime());
+        }else{
+          JOptionPane.showMessageDialog(null, "Startnumret existerar inte!");
+          timeButtonClicked(e);
+        }
+      }else{
+        timeButtonClicked(e);
+      }
+    }
+  }
+
+  private Runner getRunnerByStartNumber(int number){
+    for(Runner runner: Runners){
+      if(runner.getStartn() == number)
+        return runner;
+    }
+    return null;
   }
 
   private void sort(Comparator<Runner> comparator){

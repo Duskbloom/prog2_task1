@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.JOptionPane;
 
 class TimeForm extends Form {
   private JTextField startNumberField;
@@ -41,7 +42,15 @@ class TimeForm extends Form {
   
   @Override
   public boolean isValidForm(){
-    return isValidInteger(startNumberField.getText()) && isValidDouble(timeField.getText());
+    if(!isValidInteger(startNumberField.getText())){
+      JOptionPane.showMessageDialog(null, "Du måste ange ett giltigt startnummer!");
+      return false;
+    }
+    if(!isValidDouble(timeField.getText())){
+      JOptionPane.showMessageDialog(null, "Du måste ange en giltig tid!");
+      return false;
+    }
+    return true;
   }
   
 }
