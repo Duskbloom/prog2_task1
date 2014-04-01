@@ -112,7 +112,7 @@ public class MainWindow extends JFrame implements ActionListener {
   }
 
   private void newButtonClicked(ActionEvent e){
-    Form form = new Form();
+    NewRunnerForm form = new NewRunnerForm();
     int result = JOptionPane.showConfirmDialog(null, form, "Ny tävlande", JOptionPane.OK_CANCEL_OPTION, JOptionPane.NO_OPTION);
     if(result == JOptionPane.OK_OPTION){
       Runners.add(new Runner(form.getName(), form.getCountry(), form.getAge(), start));
