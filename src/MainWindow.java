@@ -136,7 +136,10 @@ public class MainWindow extends JFrame implements ActionListener {
       sort(new TimeComparator());
     }
     //kolla radiobutton.isSelected() else if  lägg till lyssnare på radiobuttons
+    refreshList();
+  }
 
+  private void refreshList(){
     runnerListModel.clear();
     for(Runner runner: Runners){
       runnerListModel.addElement(runner);
