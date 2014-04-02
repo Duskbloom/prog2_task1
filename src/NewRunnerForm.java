@@ -20,7 +20,7 @@ public class NewRunnerForm extends Form{
     setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     JLabel nameLabel = new JLabel("Namn: ");
     JLabel countryLabel = new JLabel("Land: ");
-    JLabel ageLabel = new JLabel("Ålder: ");
+    JLabel ageLabel = new JLabel("Ã…lder: ");
     JLabel startNumberLabel = new JLabel("Startnummer: " + startNumber);
     p1.add(nameLabel);
     p1.add(nameField);
@@ -49,15 +49,15 @@ public class NewRunnerForm extends Form{
   @Override
   public boolean isValidForm() {
     if (!isValidString(nameField.getText())){
-      JOptionPane.showMessageDialog(null, "Du måste ange ett namn!");
+      JOptionPane.showMessageDialog(null, "Du mÃ¥ste ange ett namn!");
       return false;
     }
     if (!isValidString(countryField.getText())){
-      JOptionPane.showMessageDialog(null, "Du måste ange ett land!");
+      JOptionPane.showMessageDialog(null, "Du mÃ¥ste ange ett land!");
       return false;
     }
     if (!isValidInteger(ageField.getText())){
-      JOptionPane.showMessageDialog(null, "Du måste ange en ålder i siffror");
+      JOptionPane.showMessageDialog(null, "Du mÃ¥ste ange en Ã¥lder i siffror");
       return false;
     }
     return true;
