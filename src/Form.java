@@ -18,6 +18,10 @@ abstract class Form extends JPanel{
     }
     return true;
   }
+  
+  protected boolean isValidString(String input){
+    return input != null && input.length() > 0;
+  }
 
   public abstract boolean isValidForm();
 }
