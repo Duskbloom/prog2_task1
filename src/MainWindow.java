@@ -113,7 +113,7 @@ public class MainWindow extends JFrame implements ActionListener {
   }
 
   private void newButtonClicked(ActionEvent e){
-    NewRunnerForm form = new NewRunnerForm();
+    NewRunnerForm form = new NewRunnerForm(start);
     showNewRunnerForm(form);
     start++;
   }
