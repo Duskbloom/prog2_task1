@@ -41,11 +41,11 @@ public class Runner{
   @Override
   public String toString() {
     if (this.time == Double.MAX_VALUE)
-      return startn + " " + name + ", " + country + ", " + age
-          + " år";
+      return startn + " " + name + " " + country + " " + age
+          + " --";
     else
-      return startn + " " + name + ", " + country + ", " + age
-          + " år, Tid: " + time;
+      return startn + " " + name + " " + country + " " + age
+          + " " + time;
     
   }
 
